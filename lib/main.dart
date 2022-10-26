@@ -12,6 +12,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  String judul = "", desc = "";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +23,26 @@ class _MyAppState extends State<MyApp> {
         body: Container(
           margin: EdgeInsets.all(10),
           child: ListView(
-            children: <Widget>[],
+            children: <Widget>[
+              ListTile(
+                title: Text(judul),
+                subtitle: Text(desc),
+                leading: CircleAvatar(),
+                trailing: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        if (judul == "") {
+                          judul = "Sutrisno";
+                          desc = "Dosen UBSI Purwokerto";
+                        } else {
+                          judul = "";
+                          desc = "";
+                        }
+                      });
+                    },
+                    child: Text('Klik Aku')),
+              ),
+            ],
           ),
         ),
       ),
